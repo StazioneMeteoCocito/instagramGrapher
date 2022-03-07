@@ -7,3 +7,6 @@ Plots graphs based on the data retrieved fron the weather station, upload the re
 Uses:
 * matplotlib
 * instabot
+
+
+![Ultimo Grafico](day.jpg)
