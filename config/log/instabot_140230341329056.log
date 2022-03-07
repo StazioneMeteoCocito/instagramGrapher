@@ -1,0 +1,6 @@
+2022-03-07 22:35:00,354 - instabot version: 0.108.0 (bot) - INFO - Instabot version: 0.108.0 Started
+2022-03-07 22:35:00,355 - instabot version: 0.108.0 (api_login) - INFO - PRE-LOGIN FLOW!... 
+2022-03-07 22:35:11,249 - instabot version: 0.108.0 (api) - ERROR - Request returns 429 error!
+2022-03-07 22:35:11,249 - instabot version: 0.108.0 (api) - WARNING - That means 'too many requests'. I'll go to sleep for 6 minutes.
+2022-03-07 22:41:12,400 - instabot version: 0.108.0 (api) - ERROR - Request returns 429 error!
+2022-03-07 22:41:12,400 - instabot version: 0.108.0 (api) - WARNING - That means 'too many requests'. I'll go to sleep for 11 minutes.
