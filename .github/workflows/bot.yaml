@@ -1,0 +1,34 @@
+name: Send a Post
+on:
+  push:
+    paths:
+      "toggle"
+  schedule:
+    # Runs "at minute 55 past every hour" (see https://crontab.guru)
+    - cron: '0 23 * * *'
+jobs:
+  fetch:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout repo
+      uses: actions/checkout@v2
+    - name: Setup python
+      uses: actions/setup-python@v2
+      with:
+        python-version: '3.9'
+        cache: 'pip'
+    - name: Install tweepy and requests
+      run: pip install -r requirements.txt
+    - name: Run the python twitter manager
+      continue-on-error: true
+      timeout-minutes: 10 #We can adjust it later
+      run: python3 main.py
+      env:
+          username: ${{ secrets.username }}
+          password: ${{ secrets.password }}
+    - name: Commit changes
+      uses: EndBug/add-and-commit@v7
+      with:
+        author_name: Bot
+        message: 'Updated data'
+        add: '*'
