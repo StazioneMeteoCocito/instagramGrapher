@@ -4,7 +4,7 @@ import meteoCocito
 import datetime
 from PIL import Image
 import os
-import instabot
+from instagrapi import Client
 import glob
 # Remember to `pip install -r requirements.txt`
 
@@ -45,11 +45,12 @@ def dayPlot():
     alpha_composite.save("day.jpg","JPEG", quality = 100)
     os.unlink("dy.png")
 dayPlot()
-cookie_del = glob.glob("config/*cookie.json")
-if len(cookie_del):
-    os.remove(cookie_del[0])
 text = meteoCocito.TextGenerator.current()[0]+"\n=============\n"+("\n".join(meteoCocito.TextGenerator.day()))
 print(text)
-bot = instabot.Bot()
-bot.login(username = os.environ["username"], password = os.environ["password"])
-bot.upload_photo("day.jpg",text)
+cl = Client()
+cl.login(os.environ["username"], os.environ["password"])
+media = cl.photo_upload(
+    "day.jpg",
+    text
+)
+
