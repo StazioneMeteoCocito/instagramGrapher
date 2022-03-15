@@ -17,15 +17,12 @@ jobs:
       with:
         python-version: '3.9'
         cache: 'pip'
-    - name: Install tweepy and requests
+    - name: Install needed packags
       run: pip install -r requirements.txt
-    - name: Run the python twitter manager
+    - name: Run the graph maker
       continue-on-error: true
       timeout-minutes: 10 #We can adjust it later
       run: python3 main.py
-      env:
-          username: ${{ secrets.username }}
-          password: ${{ secrets.password }}
     - name: Commit changes
       uses: EndBug/add-and-commit@v7
       with:
