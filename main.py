@@ -45,12 +45,3 @@ def dayPlot():
     alpha_composite.save("day.jpg","JPEG", quality = 100)
     os.unlink("dy.png")
 dayPlot()
-text = meteoCocito.TextGenerator.current()[0]+"\n=============\n"+("\n".join(meteoCocito.TextGenerator.day()))
-print(text)
-cl = Client()
-cl.login(os.environ["username"], os.environ["password"])
-media = cl.photo_upload(
-    "day.jpg",
-    text
-)
-
