@@ -5,7 +5,7 @@ on:
       "toggle"
   schedule:
     # Runs "at minute 55 past every hour" (see https://crontab.guru)
-    - cron: '0 23 * * *'
+    #- cron: '0 23 * * *'
 jobs:
   fetch:
     runs-on: ubuntu-latest
